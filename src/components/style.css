@@ -1,0 +1,73 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+.column {
+display: flex;
+ width: 100%;
+justify-content: center;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px;
+    width: 200px;
+    padding-bottom: 10px;
+  }
+  img{
+      width: 100%;
+  }
+ 
+  
+.container {
+    padding: 0 16px;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  .card span{
+      display: flex;
+  }
+  .btn_create{
+      display:block;
+      margin-left: 80%;
+  }
+  h1{
+      color:#637ddb;
+      font-size: 40px;
+      font-family: Courier, Monaco, monospace;
+      text-align: center;
+  }
+  .btn_del{
+background-color: brown;
+color: white;
+  }
+  .btn_del:hover{
+    background-color: brown;
+    color: white;
+      }
+  .btn_edit{
+border:solid 1px#40a9ff;
+color: #40a9ff;
+  }
+  a{
+  color:#637ddb;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
