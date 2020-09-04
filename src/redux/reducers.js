@@ -37,7 +37,6 @@ function rootReducer(state = initialState, action) {
         error: action.payload
       };
     case ADD_EMPLOYMENT:
-      console.log(state,'state của add')
       return {
         ...state,
         employments: [ action.payload],
@@ -53,14 +52,12 @@ function rootReducer(state = initialState, action) {
         ),
       };
       case UPDATE_EMPLOYMENT:
-        console.log(action.payload, action.key, 'action .payload nè')
         let temp = state.employments;
         temp[action.key].email = action.payload.email;
         temp[action.key].first_name= action.payload.first_name;
         temp[action.key].last_name= action.payload.last_name;
 
         // temp[action.key].avatar= action.payload.avatar;
-        console.log(temp,'temp');
         return{
           ...state,
           employments: temp.filter(
@@ -73,14 +70,12 @@ function rootReducer(state = initialState, action) {
             loading: true
           };
         case GET_EMPLOYMENT_SUCCESS:
-          console.log(action.payload)
           return {
             ...state,
             loading: false,
             employment: action.payload
           };
         case GET_EMPLOYMENT_FAIL:
-          console.log(action.payload)
           return {
             ...state,
             loading: false,
@@ -88,7 +83,6 @@ function rootReducer(state = initialState, action) {
           };
 
           case UPDATE_DETAIL:
-            console.log(action.payload, action.key, 'action .payload của 1 detail nè nè')
             return{
               ...state,
               employment: action.payload

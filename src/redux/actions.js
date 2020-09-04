@@ -80,7 +80,6 @@ import {
   });
   
   export const getEmploymentAction = (id) => {
-    console.log(id, 'id của bên trang tạo nè nè huhu sao ko ra rứa')
     return dispatch => {
       try {
         dispatch(getEmploymentPendingAction());

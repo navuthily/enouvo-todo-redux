@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
-import { Button, Modal, Form, Input } from 'antd';
-import ModelEdit from './ModelEdit';
+import { Button} from 'antd';
 import notification from '../utils/notification';
 import { connect } from "react-redux";
 import './style.css'
@@ -12,10 +11,7 @@ import {
 import EditDetail from './EditDetail';
   const EmployeeDetail = ({
     employment,
-    getemployment,
-    addemployment,
-    delemployment,
-    editemployment,
+    delemployment
   }) => {
   const [visible, setVisible] = useState(false);
 
@@ -29,7 +25,7 @@ import EditDetail from './EditDetail';
   return (
     <div>
       <div className="column">
-      {(employment.id)
+      {(employment.email)
         ? 
         (
           <div className="card" >

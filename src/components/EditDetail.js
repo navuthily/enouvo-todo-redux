@@ -98,7 +98,6 @@ const CollectionEditForm = ({ visible, onEdit, onCancel }) => {
   const onEdit = (values,) => {
     setVisible(false);
     //ở đây có thể gọi 1 hàm khác nữa
-    console.log(onUpdate(),'onupdate nè');
     editemployment(values,onUpdate());
   };
   return (

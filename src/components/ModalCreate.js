@@ -13,7 +13,6 @@ import {
   getEmploymentAction,
   addemploymentAction,
   deleteemploymentAction,
-  updateemploymentAction
 } from "../redux/actions";
 const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
@@ -102,7 +101,6 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
     employments,
     addemployment,
     delemployment,
-    editemployment,
   }) => {
     useEffect(() => {
       getemployments();
