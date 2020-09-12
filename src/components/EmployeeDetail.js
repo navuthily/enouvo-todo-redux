@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
-import { Button} from 'antd';
+import { Button, Modal, Form, Input, Card, Avatar } from 'antd';
+import { DeleteOutlined,SettingOutlined ,EllipsisOutlined,EditOutlined} from '@ant-design/icons';
 import notification from '../utils/notification';
 import { connect } from "react-redux";
 import './style.css'
@@ -9,7 +10,9 @@ import {
   getEmploymentAction
 } from "../redux/actions";
 import EditDetail from './EditDetail';
-  const EmployeeDetail = ({
+import ModelEdit from './ModelEdit';
+const { Meta } = Card;
+const EmployeeDetail = ({
     employment,
     delemployment
   }) => {
@@ -25,19 +28,37 @@ import EditDetail from './EditDetail';
   return (
     <div>
       <div className="column">
+        
       {(employment.email)
         ? 
         (
-          <div className="card" >
-                    <img src={`${employment.avatar}`}/>
-                     <div className="container">
-                     <h2><a className="view_detal" href='/user'>{employment.first_name}-{employment.last_name}</a></h2>
-                      <p className="title">Email: {employment.email}</p>
-                     <span><Button className="btn_del" onClick={(data) => dele(employment, employment.id)}>  Delete  </Button>
-                         <EditDetail onUpdate={(data) => onUpdate(employment.id)}/>
-                     </span>
-                    </div>      
-                   </div>
+          <div>
+            <h1>Employee detail</h1>
+          <Card
+          className="card-1"
+            style={{ width: "300px",margin:"10px" }}
+          cover={
+            <img
+            style={{ width: "140px" ,height:"140px",borderRadius :"50%", border:"solid 2px #637ddb",margin:"auto",marginTop:"20px"} }
+              className="image-detail"
+              alt="example"
+              src={`${employment.avatar}`}
+              hoverable
+           /> 
+          }
+          actions={[
+            <SettingOutlined key="setting" />,
+            <ModelEdit/>,
+            <DeleteOutlined  onClick={(data) => dele(employment, employment.id)}/>,
+            <EllipsisOutlined key="ellipsis"  />,
+          ]}
+        >
+          <Meta
+           title={` ${employment.first_name} ${employment.last_name}`}
+           description={`${employment.email}`}
+          />
+        </Card>
+          </div>
         )
         : <h1>No employment</h1>
       }

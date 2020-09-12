@@ -15,7 +15,7 @@ export default function Routes() {
       <div>
         <Switch>
           <Route path='/' exact component={ModalCreate}>
-            <h1>List employeers</h1>
+            <h1>List employee</h1>
             <ModalCreate/>
           </Route>
           <Route path='/employ' exact component={EmployeeDetail}/>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import { Button, Modal, Form, Input, Radio } from 'antd';
+import { EditOutlined} from '@ant-design/icons';
+
 import { connect } from "react-redux";
 import './style.css';
 import {
@@ -103,13 +105,10 @@ const CollectionEditForm = ({ visible, onEdit, onCancel }) => {
   };
   return (
     <div>
-      <Button  className="btn_edit"
-        onClick={() => {
+      <EditOutlined key="edit"  onClick={() => {
         setVisible(true);
-        }}
-      >
-        Edit
-      </Button>
+        }} />
+     
       <CollectionEditForm
         visible={visible}
         onEdit={onEdit}

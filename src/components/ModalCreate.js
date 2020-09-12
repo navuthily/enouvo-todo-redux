@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import notification from '../utils/notification';
-import { Button, Modal, Form, Input, Radio } from 'antd';
+import { Button, Modal, Form, Input, Card, Avatar } from 'antd';
+import { DeleteOutlined,SettingOutlined ,EllipsisOutlined} from '@ant-design/icons';
 import ModelEdit from './ModelEdit';
 import { connect } from "react-redux";
 import './style.css'
@@ -14,6 +15,8 @@ import {
   addemploymentAction,
   deleteemploymentAction,
 } from "../redux/actions";
+
+const { Meta } = Card;
 const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
   return (
@@ -149,18 +152,32 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
         setVisible(false);
       }}
     />
-    <div className="column">
+    <div className="column"  style={{ position:"absolute" }}>
         {employments.map((employment, key) => (
-         <div className="card" key={key}>
-          <img src={`${employment.avatar}`}/>
-           <div className="container">
-           <h2><a className="view_detal" onClick={(data) => onViewDetail(employment.id)}>{employment.first_name}-{employment.last_name}</a></h2>
-            <p className="title">Email: {employment.email}</p>
-           <span><Button className="btn_del" onClick={(data) => dele(employment, key)}>  Delete  </Button>
-               <ModelEdit onUpdate={(data) => onUpdate(key)}/>
-           </span>
-          </div>      
-         </div>
+             <Card
+             className="card-1"
+             style={{ width: "300px",margin:"10px" }}
+           cover={
+             <img
+             style={{ width: "140px" ,height:"140px",borderRadius :"50%", border:"solid 2px #637ddb",margin:"auto",marginTop:"20px"} }
+               className="image-detail"
+               alt="example"
+               src={`${employment.avatar}`}
+               hoverable
+            /> 
+           }
+           actions={[
+             <SettingOutlined key="setting" />,
+             <ModelEdit/>,
+             <DeleteOutlined  onClick={(data) => dele(employment, employment.id)}/>,
+             <EllipsisOutlined key="ellipsis"  onClick={(data) => onViewDetail(employment.id)}/>,
+           ]}
+         >
+           <Meta
+            title={` ${employment.first_name} ${employment.last_name}`}
+            description={`${employment.email}`}
+           />
+         </Card>
        ))}
     </div>
   </div>

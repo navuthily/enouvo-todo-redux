@@ -5,6 +5,9 @@ html {
   *, *:before, *:after {
     box-sizing: inherit;
   }
+  body{
+    overflow: hidden;
+  }
 .column {
 display: flex;
  width: 100%;
@@ -48,6 +51,7 @@ justify-content: center;
   .btn_create{
       display:block;
       margin-left: 80%;
+      margin-bottom:  30px;
   }
   h1{
       color:#637ddb;
@@ -71,3 +75,18 @@ color: #40a9ff;
   color:#637ddb;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
+
+  .image-detail{
+    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+  }
+
+.card-1 {
+  box-shadow: 0 1px 3px 3px rgba(74, 59, 216, 0.12), 1px 1px 1px rgba(13, 26, 201, 0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 5px 5px 5px rgba(74, 59, 216, 0.12), 1px 1px 1px  rgba(13, 26, 201, 0.24);
+}
